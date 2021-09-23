@@ -15,13 +15,13 @@ variable "name" {
     description = "Name of the MySql database"
 }
 
-variable "version" {
+variable "mysql_version" {
     type = string
     description = "Version for the MySQL database"
 
     validation {
-        condition     = var.version == "5.7" || var.version == "8.0"
-        error_message = "MySQL version must be 5.7 or 8.0"
+        condition     = var.mysql_version == "5.7" || var.mysql_version == "8.0"
+        error_message = "MySQL version must be 5.7 or 8.0?"
   }
 }
 
@@ -30,8 +30,8 @@ variable "storage_size" {
     description = "Storage size in MB for the database"
 
     validation {
-        condition = var.storage > 0
-        error_message = "Storage size must be higher than 0mb"
+        condition = var.storage_size > 0
+        error_message = "Storage size must be higher than 0mb?"
     }
   
 }
@@ -54,7 +54,7 @@ variable "backup_retention_period" {
 
     validation {
         condition = var.backup_retention_period >= 7 && var.backup_retention_period <= 35
-        error_message = "Retention days should be between 7 and 35"
+        error_message = "Retention days should be between 7 and 35?"
     }
 }
 
@@ -66,7 +66,7 @@ variable "password_length" {
 
 
 variable "tags" {
-    type = map(string,string)
+    type = map(string)
     description = "Tags that should be added to the resource"
     default = {
         "environmnet" = "Development"

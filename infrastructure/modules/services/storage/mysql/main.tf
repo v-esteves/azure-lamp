@@ -13,7 +13,7 @@ resource "azurerm_mysql_server" "mysql" {
 
     sku_name   = var.sku
     storage_mb = var.storage_size
-    version    = var.version
+    version    = var.mysql_version
 
     auto_grow_enabled                 = var.auto_grow
     backup_retention_days             = var.backup_retention_period
