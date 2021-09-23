@@ -19,3 +19,4 @@ module "mysql" {
     password_length             = var.mysql_password_length
     tags                        = var.mysql_tags
 }
+

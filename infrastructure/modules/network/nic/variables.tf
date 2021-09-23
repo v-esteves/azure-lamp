@@ -8,14 +8,12 @@ variable "region" {
   description = "region where resources should be created"
 }
 
-variable "vnet_name" {
+variable "subnet_id" {
   type = string
-  description = "name to be applied to the vnet"
-  default = "terraform_vnet"
+  description = "subnet where the network interface card should be created"  
 }
 
-variable "vnet_cidr_list" {
-  type = list(string)
-  description = "CIDR range to create the vnet"
-  default = ["10.1.0.0/16"]
+variable "nic_name" {
+  type = string
+  description = "name for the NIC to be created"
 }
