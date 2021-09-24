@@ -20,3 +20,13 @@ module "mysql" {
     tags                        = var.mysql_tags
 }
 
+module "webserver" {
+    source                      = "../modules/services/webserver"
+    resourcegroup               = azurerm_resource_group.rg.name
+    region                      = azurerm_resource_group.rg.location
+    pool_size                   = 5
+    name_pool                   = "default"
+    availability_set            = "default_av_set"
+    password_length             = 16
+    subnet_id                   = 12512323
+}
