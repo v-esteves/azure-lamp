@@ -57,3 +57,32 @@ variable "mysql_tags" {
     type = map(string)
     description = "Tags that should be added to the resource"
 }
+
+variable "vnet_name" {
+  type = string
+  description = "name to be applied to the vnet"
+  default = "terraform_vnet"
+}
+
+variable "vnet_cidr_list" {
+  type = list(string)
+  description = "CIDR range to create the vnet"
+  default = ["10.1.0.0/16"]
+}
+
+variable "subnet_name" {
+    type = string
+    description = "name to be applied to the subnet"
+    default = "terraform_vnet_subnet"
+}
+
+variable "vnet_subnet_cidr" {
+    type = string
+    description = "CIDR range to create the subnet for the AKS cluster"
+    default = "10.1.0.0/22"
+}
+
+variable "webserver_pool_name" {
+    type = string
+    description = "name of the web servers. full name will be composed by name and pool size index"
+}
